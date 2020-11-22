@@ -1,0 +1,46 @@
+
+# Check dependencies
+
+rosdep install -i --from-path src --rosdistro <distro> -y
+
+# Install colcon
+
+sudo apt install python3-colcon-common-extensions
+
+$ Create a Workspace
+
+mkdir -p ~/dev_ws/src
+cd ~/dev_ws/src
+git clone https://github.com/ros/ros_tutorials.git -b foxy-devel
+rosdep install -i --from-path src --rosdistro foxy -y
+cd ~/dev_ws
+colcon build 
+source /opt/ros/foxy/setup.bash
+cd ~/dev_ws
+. install/local_setup.bash
+
+
+# Create a ROS 2 Package
+
+cd ~/dev_ws/src
+ros2 pkg create --build-type ament_python --node-name my_node my_package
+cd ~/dev_ws
+colcon build --packages-select my_package
+. install/setup.bash
+ros2 run my_package my_node
+
+
+# ROS 2 Nodes
+
+ros2 node list
+ros2 node info /turtlesim
+
+(terminal 1) ros2 run turtlesim turtlesim_node
+(terminal 2) ros2 run turtlesim turtle_teleop_key Use the arrow keys to move the turtle
+(terminal 3) ros2 node list
+
+
+# ROS 2 Launch
+
+cd ~/dev_ws/src/ros_tutorials/turtlesim/launch
+ros2 launch multisim.launch.py

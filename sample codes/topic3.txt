@@ -1,0 +1,62 @@
+# Visualize topics
+
+rosrun rqt_graph rqt_graph
+rqt_graph
+
+
+# ROS 2 Topics
+
+ ros2 topic list
+ ros2 topic info /turtle1/cmd_vel
+
+(terminal 1) ros2 run turtlesim turtlesim_node
+(terminal 2) ros2 run turtlesim turtle_teleop_key Use the arrow keys to move the turtle
+(terminal 3) 
+ros2 topic list
+ros2 topic info /turtle1/cmd_vel
+ros2 topic echo /turtle1/cmd_vel
+
+# Publish Topic Data
+
+ros2 topic pub --once /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}"
+
+# ROS 2 Topic Type
+
+ros2 topic type /turtle1/cmd_vel
+
+# Message
+
+ros2 msg show geometry_msgs/Twist
+
+# ROS 2 Service
+
+ros2 service list
+
+(terminal 1) ros2 run turtlesim turtlesim_node
+(terminal 2) ros2 run turtlesim turtle_teleop_key Use the arrow keys to move the turtle
+(terminal 3) 
+ros2 service list
+ros2 service call /spawn turtlesim/srv/Spawn "{x: 2, y: 2, theta: 0.2, name: ''}"
+
+# ROS 2 Parameter
+
+ros2 param list
+
+(terminal 1) ros2 run turtlesim turtlesim_node
+(terminal 2) ros2 run turtlesim turtle_teleop_key Use the arrow keys to move the turtle
+(terminal 3) 
+ros2 param list
+ros2 param get /turtlesim background_g
+ros2 param set /turtlesim background_r 150
+
+# ROS 2 Parameter
+
+ros2 action list
+
+(terminal 1) ros2 run turtlesim turtlesim_node
+(terminal 2) ros2 run turtlesim turtle_teleop_key Use the arrow keys to move the turtle
+(terminal 3) 
+ros2 node info /turtlesim
+ros2 action list
+ros2 action info /turtle1/rotate_absolute
+ros2 action send_goal /turtle1/rotate_absolute turtlesim/action/RotateAbsolute "{theta: 1.57}"

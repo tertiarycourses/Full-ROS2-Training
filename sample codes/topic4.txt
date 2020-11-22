@@ -1,0 +1,18 @@
+# ROS 2 Bag
+
+ros2 bag record <topic_name>
+ros2 bag info <bag_file_name>
+ros2 bag play  <bag_file_name>
+
+(terminal 1) ros2 run turtlesim turtlesim_node
+(terminal 2) ros2 run turtlesim turtle_teleop_key
+(terminal 3) running rosbag record 
+mkdir ~/bagfiles
+cd ~/bagfiles
+ros2 bag record /turtle1/cmd_vel
+(terminal 3) move the turtle with arrow keys
+(terminal 4) exit with a Ctrl-C.
+(terminal 4) ros2 bag info <your bagfile>
+(terminal 4) ros2 bag play <your bagfile>
+
+
