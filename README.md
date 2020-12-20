@@ -1,5 +1,5 @@
 # Full ROS 2 Training
-## by [Tertiary Infotech Pte. Ltd](https://www.tertiarycourses.com.sg/)
+## by [Tertiary Courses](https://www.tertiarycourses.com.sg/)
 
 These are the exercise files used for [Full ROS 2 Trainings](https://www.tertiarycourses.com.sg/full-robot-operating-system-ros2-training.html) course. 
 
