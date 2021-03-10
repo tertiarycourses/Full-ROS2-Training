@@ -1,0 +1,12 @@
+$ python3 py_test1.py
+$ python3 py_test2.py
+
+
+$ cd ~/dev_ws
+$ colcon build --symlink-install --packages-select demo2
+$ source install/local_setup.bash
+$ ros2 run demo2 my_second_node
+
+$ python3 py_test3.py
+$ python3 py_test4.py
+$ python3 py_test5.py
