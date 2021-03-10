@@ -7,18 +7,14 @@ rosdep install -i --from-path src --rosdistro <distro> -y
 
 sudo apt install python3-colcon-common-extensions
 
-$ Create a Workspace
+## Create a Workspace
 
-mkdir -p ~/dev_ws/src
-cd ~/dev_ws/src
-git clone https://github.com/ros/ros_tutorials.git -b foxy-devel
-rosdep install -i --from-path src --rosdistro foxy -y
-cd ~/dev_ws
-colcon build 
-source /opt/ros/foxy/setup.bash
-cd ~/dev_ws
-. install/local_setup.bash
-
+$ mkdir -p ~/dev_ws/src
+$ cd ~/dev_ws/src
+$ cd ~/dev_ws
+$ colcon build --symlink-install
+$ source /opt/ros/foxy/setup.bash
+$ source install/local_setup.bash
 
 # Create a ROS 2 Package
 
